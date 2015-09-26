@@ -1,0 +1,27 @@
+{
+  "name": "imagely",
+  "version": "0.0.0",
+  "homepage": "https://github.com/thomaslam/imagely",
+  "authors": [
+    "thomaslam <tuananhlam95@gmail.com>"
+  ],
+  "description": "image based learning web app",
+  "main": "server/server.js",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/dist",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.6",
+    "jquery": "~2.1.4",
+    "angular-route": "~1.4.6"
+  }
+}
