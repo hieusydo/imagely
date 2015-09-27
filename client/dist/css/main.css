@@ -1,0 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
+
+body {
+    background-color: #fff;
+    color: #468CC8;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+	font-family: 'Pacifico', sans-serif;
+    font-size: 72px;
+    padding-bottom: 15px;
+}
+
+.desc {
+	font-family: 'Pacifico', sans-serif;
+	font-size: 18px;
+	padding-bottom: 30px;
+}
+
+img {
+	height: 40%;
+}
+
+.photo {
+	padding-bottom: 30px;
+}
+
+.wordlist {
+	padding-bottom: 15px;
+	font-size: 18px;
+}
+
+
