@@ -16,6 +16,7 @@ var quizApp = angular.module('quizApp', [])
         console.log(record);
         return record;
         var urlId = record[0].imageUrl;
+        console.log(urlId);
         $scope.imageUrl = _http({
           method: 'GET',
           url: '/api/findImage:' + urlId

@@ -9,6 +9,8 @@ body {
 
 #bookmark-btn {
   margin: auto;
+  width: 50%;
+  margin: 10px;
 }
 
 #url-input {
