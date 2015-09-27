@@ -1,5 +1,67 @@
 <!DOCTYPE html>
 
+<!-- <<<<<<< HEAD -->
+<head>
+  <meta charset='utf-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Imagely</title>
+
+  <!-- CSS stuff -->
+  <link rel="stylesheet" href="dist/bootstrap/dist/css/bootstrap.min.css">
+  <link href="dist/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+  <script src="dist/jquery/dist/jquery.min.js"></script>
+  <script src="dist/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="dist/angular/angular.js"></script>
+  <script src="dist/angular-route/angular-route.js"></script>
+  <script src="clarifyService.js"></script>
+  <script src="yandexService.js"></script>
+  <script src="mainController.js"></script>
+</head>
+<body ng-app="imagely" ng-controller="MainController">
+  
+  <div class="container-fluid">
+    <div class="row" id="title">
+      <h1>Imagely</h1>
+    </div>
+    <div class="jumbotron">
+      <input type="text" id="url-input" placeholder="Image url">
+      <button ng-click="submit(); translate();" class="btn btn-block btn-lg btn-primary">Submit</button>
+    </div>
+
+    <div class="row">
+      <div class="col-md-3">
+        <img ng-show="image" src="{{ image }}" alt="" width="250px" height="250px">        
+      </div>
+
+      <div class="col-md-4">
+        <div class="todo">
+          <div ng-show="tags" class="todo-search"></div>
+          <ul>
+            <li ng-repeat="tag in tags">{{ tag }}</li>
+          </ul>      
+        </div>
+      </div>
+
+      <div class="col-md-5">
+        <div class="todo">
+          <div ng-show="tags" class="todo-search"></div>
+          <ul>
+              <li ng-repeat="word in translatedArr track by $index">{{word}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  
+</body>
+<!-- =======
 <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,3 +101,5 @@
 		</div>
     </div>
 </body>
+>>>>>>> 2e5012c0cfb499d853d0840a1178fe2123b6e4fb
+ -->
