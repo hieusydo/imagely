@@ -4,13 +4,11 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
-
+var fs = require('fs');
 
 var app = express();
 
 // Middleware stuff
-app.set('views', path.join(__dirname, "views"));
-app.set('view engine', 'ejs');
 
 app.use(partials());
 app.use(bodyParser.json());
@@ -25,3 +23,10 @@ app.get('/', function(req, res) {
 
 app.listen(process.env.PORT || 8000);
 console.log("Server listening on port localhost:8000");
+
+fs.writeFile(__dirname + '/restart.log', 'restart', function(err) {
+  if (err) {
+    throw err;
+  }
+  console.log('Server restart logged at restart.log file');
+});

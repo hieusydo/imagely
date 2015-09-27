@@ -1,1 +1,29 @@
-<div>this workssdfdsf</div>
+<!DOCTYPE html>
+<head>
+  <meta charset='utf-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Imagely</title>
+
+  <script src="dist/jquery/dist/jquery.min.js"></script>
+  <script src="dist/angular/angular.js"></script>
+  <script src="dist/angular-route/angular-route.js"></script>
+  <!-- // <script src="app.js"></script> -->
+  <script src="mainController.js"></script>
+</head>
+<body ng-app="imagely" ng-controller="MainController">
+  
+  <input type="text" id="url-input" placeholder="Image url">
+  <button ng-click="submit()">Submit</button>
+  {{ response }}
+
+  
+  
+  
+  <!-- // <script src="app.routes.js"></script> -->
+</body>
+
+<!--   <input type="text" id="url-input" placeholder="Image url">
+  <button onclick="submit()">Submit</button>
+  <div>sfsdf</div>
+  <div>{{ stuff }}</div> -->
