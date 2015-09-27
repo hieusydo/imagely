@@ -19,6 +19,10 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 app.get('/', function(req, res) {
   res.render('index');
+});
+
+app.get('/quiz', function(req, res) {
+  res.render('quiz');
 })
 
 app.listen(process.env.PORT || 8000);

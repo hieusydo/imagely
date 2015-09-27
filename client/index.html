@@ -20,15 +20,20 @@
   <script src="dist/angular/angular.js"></script>
   <script src="dist/angular-route/angular-route.js"></script>
   <script src="clarifyService.js"></script>
+  <!-- // <script src="routes.js"></script> -->
   <script src="yandexService.js"></script>
   <script src="mainController.js"></script>
 </head>
 <body ng-app="imagely" ng-controller="MainController">
-  
+
   <div class="container-fluid">
     <div class="row" id="title">
       <h1>Imagely</h1>
     </div>
+
+    <div class="ng-view"></div>
+
+    
     <div class="jumbotron">
       <input type="text" id="url-input" placeholder="Image url">
       <button ng-click="submit(); translate();" class="btn btn-block btn-lg btn-primary">Submit</button>

@@ -21,6 +21,7 @@ h1 {
 }
 
 input {
+  outline: none;
   border-radius: 15px;
   border: solid 3px rgba(255, 255, 255, .5);
   width: 100%;
