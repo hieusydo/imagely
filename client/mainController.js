@@ -1,26 +1,41 @@
-// (function() {
+imageApp
+	.controller('MainController', ['$scope', '$http', '$location', 'ClarifyService', 'YandexService', MainController]);
 
-angular.module('imagely', [])
-  .controller('MainController', ['$scope', '$location', MainController]);
+function MainController($scope, $http, $location, ClarifyService, YandexService) {
+	//Parsing text from Clarifai
+	$scope.tags;
+	$scope.toBeTranslated;
+	$scope.translated;
+	$scope.translatedArr;
 
-function MainController($scope, $location) {
-  $scope.json;
+	$scope.submit = function() {
+		ClarifyService.retrieveTags($('#url-input').val());
+	};
+	$scope.$watch(
+		function() {
+			return ClarifyService.getTags();
+		},
+		function(newVal, oldVal) {
+			$scope.tags = newVal;
+			console.log(JSON.stringify($scope.tags).replace(/\,/g, ', '));
+			$scope.toBeTranslated = JSON.stringify($scope.tags).replace(/\,/g, ', ');
+			$scope.translated = JSON.stringify($scope.translate($scope.toBeTranslated)); 
+		}
+	);
 
-  $scope.submit = function() {
-    console.log($('#url-input').val());
-    var url = $('#url-input').val();
+	//Translating
+	// var word = 'art';
+	$scope.translate = function() {
+		YandexService.translate($scope.toBeTranslated);
+	};
 
-    $.ajax({
-      'type': 'GET',
-      'contentType': 'application/json; charset=utf-8',
-      'url': 'https://api.clarifai.com/v1/tag/\?url\=' + url,
-      'headers': {
-        'Authorization': 'Bearer URQPb61EeLHho94TOHzZmthOWwHJRL'
-      }
-    }).then(function(json) {
-      console.log(json);
-      $scope.json = JSON.parse(json);
-    });
-  }
+	$scope.$watch(
+		function() {
+			return YandexService.getTranslated();	
+		},
+		function(newVal, oldVal) {
+			$scope.translated = newVal;
+			$scope.translatedArr = $scope.translated.replace(/\[|\"\"|\"|\]|\\/g, '').split(',');
+		}	
+	);
 }
-// })();

@@ -23,10 +23,3 @@ app.get('/', function(req, res) {
 
 app.listen(process.env.PORT || 8000);
 console.log("Server listening on port localhost:8000");
-
-fs.writeFile(__dirname + '/restart.log', 'restart', function(err) {
-  if (err) {
-    throw err;
-  }
-  console.log('Server restart logged at restart.log file');
-});
