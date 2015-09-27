@@ -22,9 +22,9 @@ Angular.js is a pain.
 We plan to finish the quiz mode for our web app since memory retention is important in language learning. We also want to implement authentication system to ensure personalized user experience as well as possible social network integration aspect.
 
 ##Built With
-'javascript'
-'css'
-'html'
-'ruby'
+`javascript`
+`css`
+`html`
+`ruby`
 
 Built at hackNY 2015 
