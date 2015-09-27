@@ -1,30 +1,83 @@
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#bookmark-btn {
+  margin: auto;
+}
+
+#url-input {
+	outline: none;
+}
+
 .todo-search:before {
-  display:none;
+    display: none;
 }
 
 .todo li:after {
-  display:none;
+    display: none;
 }
 
 .jumbotron {
-  background-color: #34495E;
+    background-color: #34495E;
 }
 
 #title {
-  display: block;
-  margin: auto;
-  width: 60%;
+    display: block;
+    margin: auto;
+    width: 60%;
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
 }
 
 input {
-  outline: none;
-  border-radius: 15px;
-  border: solid 3px rgba(255, 255, 255, .5);
-  width: 100%;
-  margin: 15px;
-  padding: 5px 15px 6px;
+    border-radius: 15px;
+    border: solid 3px rgba(255, 255, 255, .5);
+    width: 100%;
+    margin: 15px;
+    padding: 5px 15px 6px;
+}
+
+.lang {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn-default:hover,
+.btn-default.hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+    color: #ffffff;
+    background-color: #1ABC9C;
+    border-color: #cacfd2;
+}
+
+.page-wrap {
+    min-height: 100%;
+    /* equal to footer height */
+    margin-bottom: -142px;
+}
+
+.page-wrap:after {
+    content: "";
+    display: block;
+}
+
+.site-footer,
+.page-wrap:after {
+    height: 142px;
+}
+
+.site-footer {
+	padding-top: 62px;
+    text-align: center;
 }

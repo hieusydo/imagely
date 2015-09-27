@@ -1,81 +1,19 @@
 <!DOCTYPE html>
 
-<!-- <<<<<<< HEAD -->
-<head>
-  <meta charset='utf-8' />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> Imagely</title>
-
-  <!-- CSS stuff -->
-  <link rel="stylesheet" href="dist/bootstrap/dist/css/bootstrap.min.css">
-  <link href="dist/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
-  <link rel="stylesheet" href="app.css">
-
-  <!-- Fonts -->
-  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-
-  <script src="dist/jquery/dist/jquery.min.js"></script>
-  <script src="dist/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="dist/angular/angular.js"></script>
-  <script src="dist/angular-route/angular-route.js"></script>
-  <script src="clarifyService.js"></script>
-  <!-- // <script src="routes.js"></script> -->
-  <script src="yandexService.js"></script>
-  <script src="mainController.js"></script>
-</head>
-<body ng-app="imagely" ng-controller="MainController">
-
-  <div class="container-fluid">
-    <div class="row" id="title">
-      <h1>Imagely</h1>
-    </div>
-
-    <div class="ng-view"></div>
-
-    
-    <div class="jumbotron">
-      <input type="text" id="url-input" placeholder="Image url">
-      <button ng-click="submit(); translate();" class="btn btn-block btn-lg btn-primary">Submit</button>
-    </div>
-
-    <div class="row">
-      <div class="col-md-3">
-        <img ng-show="image" src="{{ image }}" alt="" width="250px" height="250px">        
-      </div>
-
-      <div class="col-md-4">
-        <div class="todo">
-          <div ng-show="tags" class="todo-search"></div>
-          <ul>
-            <li ng-repeat="tag in tags">{{ tag }}</li>
-          </ul>      
-        </div>
-      </div>
-
-      <div class="col-md-5">
-        <div class="todo">
-          <div ng-show="tags" class="todo-search"></div>
-          <ul>
-              <li ng-repeat="word in translatedArr track by $index">{{word}}</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  
-  </div>
-  
-</body>
-<!-- =======
 <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title> Imagely</title>
-    <link rel="stylesheet" href="dist/css/font-awesome-4.4.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="dist/css/main.css">    
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <!-- CSS stuff -->
+    <link rel="stylesheet" href="dist/bootstrap/dist/css/bootstrap.min.css">
+    <link href="dist/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="app.css">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <script src="dist/jquery/dist/jquery.min.js"></script>
+    <script src="dist/underscore/underscore-min.js"></script>
+    <script src="dist/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="dist/angular/angular.js"></script>
     <script src="dist/angular-route/angular-route.js"></script>
     <script src="clarifyService.js"></script>
@@ -84,27 +22,47 @@
 </head>
 
 <body ng-app="imagely" ng-controller="MainController">
-    <div class="title">Imagely</div>
-    <div class="desc">Learn words from photos</div>
-    <div class="photo"><img src="https://media.licdn.com/mpr/mpr/p/4/005/05b/0ad/17ef3d8.jpg">
-    	<br>
-	    <input type="text" id="url-input" placeholder="Image url">
-	    <button ng-click="submit(); translate()">Submit</button>
+    <div class="container-fluid page-wrap">
+        <div class="row" id="title">
+            <h1>Imagely</h1>
+        </div>
+        <div class="jumbotron">
+            <input type="text" id="url-input" placeholder="Image url">
+            <button ng-click="submit(); translate();" class="btn btn-block btn-lg btn-primary">Submit</button>
+        </div>
+        <div class="lang">
+	        <button class="btn btn-sm btn-default" ng-click="changeES()">Español</button>
+	        <button class="btn btn-sm btn-default" ng-click="changeVI()">Tiếng Việt</button>
+	        <button class="btn btn-sm btn-default" ng-click="changeRU()">Русский</button>
+	        <button class="btn btn-sm btn-default" ng-click="changeHE()">עברית</button>
+	        <button class="btn btn-sm btn-default" ng-click="changeDE()">Deutsche</button>        	
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                <img ng-show="image" src="{{ image }}" alt="" width="250px" height="250px">
+                <button ng-show="image" ng-click="saveImageUrl()" class="btn btn-block btn-lg btn-primary" id="bookmark-btn">Bookmark</button>
+            </div>
+            <div class="col-md-4">
+                <div class="todo">
+                    <div ng-show="tags" class="todo-search"></div>
+                    <ul>
+                        <li ng-repeat="tag in tags">{{ tag }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="todo">
+                    <div ng-show="tags" class="todo-search"></div>
+                    <ul>
+                        <li ng-repeat="word in translatedArr track by $index">{{word}}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="wordlist">
-		<div class="row">
-			<div class="col-md-6">
-		        <ul ng-repeat="tag in tags">
-		        	<li>{{tag}}</li>
-		        </ul>				
-			</div>
-			<div class="col-md-6">
-		        <ul ng-repeat="word in translatedArr track by $index">
-		        	<li>{{word}}</li>
-		        </ul>				
-			</div>
-		</div>
-    </div>
+
+	<footer class="site-footer">
+		<span>	Copyright &copy 2015 Hieu Do, Thomas Lam, and Ann Dang.</span>		
+	</footer>
 </body>
->>>>>>> 2e5012c0cfb499d853d0840a1178fe2123b6e4fb
- -->

@@ -1,25 +1,15 @@
 imageApp
 	.controller('MainController', ['$scope', '$http', '$location', 'ClarifyService', 'YandexService', MainController]);
 
-// <<<<<<< HEAD
-// function MainController($scope, $location, ClarifyService) {
-//   $scope.tags;
-//   $scope.image;
-//   // $scope.hasImage = false;
-
-//   $scope.submit = function() {
-//     $scope.image = $('#url-input').val();
-//     // $scope.hasImage = true;
-//     ClarifyService.retrieveTags($('#url-input').val());
-//   };
-// =======
 function MainController($scope, $http, $location, ClarifyService, YandexService) {
 	//Parsing text from Clarifai
 	$scope.tags;
 	$scope.toBeTranslated;
 	$scope.translated;
-  $scope.image;
+	$scope.image;
 	$scope.translatedArr;
+  $scope.translationDict = {};
+	$scope.lang = 'es';
 
 	$scope.submit = function() {
     $scope.image = $('#url-input').val();
@@ -36,12 +26,49 @@ function MainController($scope, $http, $location, ClarifyService, YandexService)
 			$scope.translated = JSON.stringify($scope.translate($scope.toBeTranslated)); 
 		}
 	);
-// >>>>>>> 2e5012c0cfb499d853d0840a1178fe2123b6e4fb
+
+  $scope.saveImageUrl = function() {
+    if ($scope.image && $scope.tags && $scope.translatedArr) {
+      console.log($scope.translationDict);
+
+      $http({
+        method: 'POST',
+        data: {
+          url: $scope.image
+        },
+        url: '/api/storeImageUrl'
+      }).success(function(urlId) {
+        console.log(urlId);
+        return ClarifyService.storeTags($scope.translationDict, urlId + $scope.lang);
+      }).error(function(err) {
+        console.log(err);
+      });
+    }
+  }
 
 	//Translating
-	// var word = 'art';
+	$scope.changeES = function() {
+		$scope.lang = 'es';
+	}
+
+	$scope.changeVI = function() {
+		$scope.lang = 'vi';
+	}
+
+	$scope.changeRU = function() {
+		$scope.lang = 'ru';
+	}
+
+	$scope.changeHE = function() {
+		$scope.lang = 'he';
+	}
+
+	$scope.changeDE = function() {
+		$scope.lang = 'de';
+	}
+
 	$scope.translate = function() {
-		YandexService.translate($scope.toBeTranslated);
+		YandexService.translate($scope.lang, $scope.toBeTranslated);
 	};
 
 	$scope.$watch(
@@ -51,6 +78,7 @@ function MainController($scope, $http, $location, ClarifyService, YandexService)
 		function(newVal, oldVal) {
 			$scope.translated = newVal;
 			$scope.translatedArr = $scope.translated.replace(/\[|\"\"|\"|\]|\\/g, '').split(',');
+      $scope.translationDict = _.object($scope.tags, $scope.translatedArr);
 		}	
 	);
 }

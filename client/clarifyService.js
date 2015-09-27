@@ -20,13 +20,13 @@ function ClarifyService($http) {
       });
     },
 
-    storeImageUrl: function(url) {
+    storeTags: function(tags, urlId) {
       return $http({
         method: 'POST',
-        data: url,
-        url: '/api/storeImageUrl'
-      }).success(function(url) {
-        return url;
+        data: tags,
+        url: '/api/storeTags:'+ urlId
+      }).success(function(tags) {
+        return tags;
       }).error(function(err) {
         console.log(err);
       });
