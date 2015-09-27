@@ -49,7 +49,7 @@ function MainController($scope, $http, $location, ClarifyService, YandexService)
 	}
 
 	$scope.changeDE = function() {
-		$scope.lang = 'de';
+		$scope.lang = 'ja';
 		$scope.language = 'Deutsche';		
 	}
 
