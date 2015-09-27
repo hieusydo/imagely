@@ -27,3 +27,14 @@ input {
   margin: 15px;
   padding: 5px 15px 6px;
 }
+
+.lang {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.btn-default:hover, .btn-default.hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+    color: #ffffff;
+    background-color: #1ABC9C;
+    border-color: #cacfd2;
+}
