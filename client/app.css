@@ -7,6 +7,10 @@ body {
     height: 100%;
 }
 
+#url-input {
+	outline: none;
+}
+
 .todo-search:before {
     display: none;
 }
