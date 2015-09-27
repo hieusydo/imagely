@@ -1,26 +1,21 @@
-// (function() {
+imageApp
+  .controller('MainController', ['$scope', '$location', 'ClarifyService', MainController]);
 
-angular.module('imagely', [])
-  .controller('MainController', ['$scope', '$location', MainController]);
-
-function MainController($scope, $location) {
-  $scope.json;
+function MainController($scope, $location, ClarifyService) {
+  $scope.tags;
 
   $scope.submit = function() {
-    console.log($('#url-input').val());
-    var url = $('#url-input').val();
+    ClarifyService.retrieveTags($('#url-input').val());
+  };
 
-    $.ajax({
-      'type': 'GET',
-      'contentType': 'application/json; charset=utf-8',
-      'url': 'https://api.clarifai.com/v1/tag/\?url\=' + url,
-      'headers': {
-        'Authorization': 'Bearer URQPb61EeLHho94TOHzZmthOWwHJRL'
-      }
-    }).then(function(json) {
-      console.log(json);
-      $scope.json = JSON.parse(json);
-    });
-  }
+  // $scope.submit = ClarifyService.retrieveTags($('#url-input').val());
+
+  $scope.$watch(
+    function() { return ClarifyService.getTags(); },
+    function(newVal, oldVal) {
+      $scope.tags = newVal;
+    }
+  )
+
 }
-// })();
+
