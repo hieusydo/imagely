@@ -37,22 +37,22 @@
         </div>
 
         <div class="row">
-            <div class="col-md-3">
-                <img ng-show="image" src="{{ image }}" alt="" width="250px" height="250px">
+            <div class="col-md-4">
+                <img ng-show="image" src="{{ image }}" alt="" width="100%">
             </div>
             <div class="col-md-4">
                 <div class="todo">
-                    <div ng-show="tags" class="todo-search"></div>
+                    <div ng-show="tags" class="todo-search"><h5 style="text-align: center;">English</h5></div>
                     <ul>
-                        <li ng-repeat="tag in tags">{{ tag }}</li>
+                        <li ng-animate="'animate'" ng-repeat="tag in tags | limitTo:10">{{ tag }}</li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="todo">
-                    <div ng-show="tags" class="todo-search"></div>
+                    <div ng-show="tags" class="todo-search"><h5 style="text-align: center;">{{language}}</h5></div>
                     <ul>
-                        <li ng-repeat="word in translatedArr track by $index">{{word}}</li>
+                        <li ng-animate="'animate'" ng-repeat="word in translatedArr | limitTo:10 track by $index">{{word}}</li>
                     </ul>
                 </div>
             </div>
