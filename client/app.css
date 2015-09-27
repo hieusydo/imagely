@@ -1,0 +1,29 @@
+.todo-search:before {
+  display:none;
+}
+
+.todo li:after {
+  display:none;
+}
+
+.jumbotron {
+  background-color: #34495E;
+}
+
+#title {
+  display: block;
+  margin: auto;
+  width: 60%;
+}
+
+h1 {
+  text-align: center;
+}
+
+input {
+  border-radius: 15px;
+  border: solid 3px rgba(255, 255, 255, .5);
+  width: 100%;
+  margin: 15px;
+  padding: 5px 15px 6px;
+}

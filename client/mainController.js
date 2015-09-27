@@ -3,8 +3,12 @@ imageApp
 
 function MainController($scope, $location, ClarifyService) {
   $scope.tags;
+  $scope.image;
+  // $scope.hasImage = false;
 
   $scope.submit = function() {
+    $scope.image = $('#url-input').val();
+    // $scope.hasImage = true;
     ClarifyService.retrieveTags($('#url-input').val());
   };
 
