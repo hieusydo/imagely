@@ -3,6 +3,7 @@ var quizApp = angular.module('quizApp', [])
 
   function QuizController($scope, $http, $location) {
     $scope.imageUrl;
+    $scope.imageId;
     $scope.questionTag;
     $scope.answerChoices;
     $scope.language;
@@ -16,7 +17,9 @@ var quizApp = angular.module('quizApp', [])
         console.log(record);
         return record;
         var urlId = record[0].imageUrl;
+        $scope.imageId = urlId;
         console.log(urlId);
+
         $scope.imageUrl = _http({
           method: 'GET',
           url: '/api/findImage:' + urlId
@@ -25,6 +28,16 @@ var quizApp = angular.module('quizApp', [])
         });
 
         // var choices = record[0].
-      })
+      });
+      // $http({
+      //   method: 'GET',
+      //   url: '/api/findImage:' + $scope.imageId
+      // })
     }
+
+    $scope.$watch(function() {
+      return $scope.imageUrl;
+    }, function(newVal, oldVal) {
+      $scope.imageUrl = newVal;
+    })
   }

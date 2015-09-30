@@ -10,6 +10,7 @@ function MainController($scope, $http, $location, ClarifyService, YandexService)
 	$scope.translatedArr;
   $scope.translationDict = {};
 	$scope.lang = 'es';
+	$scope.language = 'Español';
 
 	$scope.submit = function() {
     $scope.image = $('#url-input').val();
@@ -49,22 +50,27 @@ function MainController($scope, $http, $location, ClarifyService, YandexService)
 	//Translating
 	$scope.changeES = function() {
 		$scope.lang = 'es';
+		$scope.language = 'Español';
 	}
 
 	$scope.changeVI = function() {
 		$scope.lang = 'vi';
+		$scope.language = 'Tiếng Việt';
 	}
 
 	$scope.changeRU = function() {
 		$scope.lang = 'ru';
+		$scope.language = 'Русский';
 	}
 
 	$scope.changeHE = function() {
 		$scope.lang = 'he';
+		$scope.language = 'עברית';
 	}
 
 	$scope.changeDE = function() {
-		$scope.lang = 'de';
+		$scope.lang = 'ja';
+		$scope.language = 'Deutsche';		
 	}
 
 	$scope.translate = function() {

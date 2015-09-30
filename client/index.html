@@ -16,6 +16,7 @@
     <script src="dist/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="dist/angular/angular.js"></script>
     <script src="dist/angular-route/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular-animate.js"></script>
     <script src="clarifyService.js"></script>
     <script src="yandexService.js"></script>
     <script src="mainController.js"></script>
@@ -45,17 +46,17 @@
             </div>
             <div class="col-md-4">
                 <div class="todo">
-                    <div ng-show="tags" class="todo-search"></div>
+                    <div ng-show="tags" class="todo-search"><h5 style="text-align: center;">English</h5></div>
                     <ul>
-                        <li ng-repeat="tag in tags">{{ tag }}</li>
+                        <li ng-repeat="tag in tags | limitTo:10">{{ tag }}</li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="todo">
-                    <div ng-show="tags" class="todo-search"></div>
+                    <div ng-show="tags" class="todo-search"><h5 style="text-align: center;">{{language}}</h5></div>
                     <ul>
-                        <li ng-repeat="word in translatedArr track by $index">{{word}}</li>
+                        <li ng-repeat="word in translatedArr | limitTo:10 track by $index">{{word}}</li>
                     </ul>
                 </div>
             </div>
