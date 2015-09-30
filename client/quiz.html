@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset='utf-8' />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Imagely</title>
+
+  <!-- CSS stuff -->
+  <link rel="stylesheet" href="dist/bootstrap/dist/css/bootstrap.min.css">
+  <link href="dist/flat-ui/dist/css/flat-ui.css" rel="stylesheet">
+  <link rel="stylesheet" href="app.css">
+
+  <!-- Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+  <script src="dist/jquery/dist/jquery.min.js"></script>
+  <script src="dist/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="dist/angular/angular.js"></script>
+  <script src="quizController.js"></script>
+</head>
+<body ng-app="quizApp" ng-controller="QuizController">
+  <div class="container-fluid page-wrap">
+    <div class="row" id="title">
+        <h1>Imagely</h1>
+    </div>
+    <div class="row">
+      <img ng-show="imageUrl" src="{{ imageUrl }}" alt="">
+    </div>
+    <div class="jumbotron">
+      <button ng-hide="imageUrl" ng-click="nextQuestion()">Start quiz</button>
+      <h2 ng-show="imageUrl">What is {{ questionTag }} in {{ language }}?</h2>
+    </div>
+
+
+  </div>
+
+  <script>
+
+  </script>
+</body>

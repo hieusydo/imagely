@@ -20,5 +20,9 @@
     "morgan": "~1.5.1",
     "nodemon": "^1.7.1",
     "serve-favicon": "~2.2.0"
+  },
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "mongoose": "^4.1.8"
   }
 }

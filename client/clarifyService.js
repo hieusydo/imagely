@@ -1,5 +1,5 @@
 
-var imageApp = angular.module('imagely', [])
+var imageApp = angular.module('imagely', ['ngRoute'])
   .factory('ClarifyService', ['$http', ClarifyService]);
 
 function ClarifyService($http) {
@@ -17,6 +17,18 @@ function ClarifyService($http) {
         console.log(json.results[0].result.tag.classes);
         tags = json.results[0].result.tag.classes;
         return json.results[0].result.tag.classes;
+      });
+    },
+
+    storeTags: function(tags, urlId) {
+      return $http({
+        method: 'POST',
+        data: tags,
+        url: '/api/storeTags:'+ urlId
+      }).success(function(tags) {
+        return tags;
+      }).error(function(err) {
+        console.log(err);
       });
     },
 

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <script src="dist/jquery/dist/jquery.min.js"></script>
+    <script src="dist/underscore/underscore-min.js"></script>
     <script src="dist/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="dist/angular/angular.js"></script>
     <script src="dist/angular-route/angular-route.js"></script>
@@ -38,8 +40,9 @@
         </div>
 
         <div class="row">
-            <div class="col-md-4">
-                <img ng-show="image" src="{{ image }}" alt="" width="100%" style="border-radius: 5px;">
+            <div class="col-md-3">
+                <img ng-show="image" src="{{ image }}" alt="" width="250px" height="250px">
+                <button ng-show="image" ng-click="saveImageUrl()" class="btn btn-block btn-lg btn-primary" id="bookmark-btn">Bookmark</button>
             </div>
             <div class="col-md-4">
                 <div class="todo">

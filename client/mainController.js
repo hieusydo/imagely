@@ -8,6 +8,7 @@ function MainController($scope, $http, $location, ClarifyService, YandexService)
 	$scope.translated;
 	$scope.image;
 	$scope.translatedArr;
+  $scope.translationDict = {};
 	$scope.lang = 'es';
 	$scope.language = 'Español';
 
@@ -26,6 +27,25 @@ function MainController($scope, $http, $location, ClarifyService, YandexService)
 			$scope.translated = JSON.stringify($scope.translate($scope.toBeTranslated)); 
 		}
 	);
+
+  $scope.saveImageUrl = function() {
+    if ($scope.image && $scope.tags && $scope.translatedArr) {
+      console.log($scope.translationDict);
+
+      $http({
+        method: 'POST',
+        data: {
+          url: $scope.image
+        },
+        url: '/api/storeImageUrl'
+      }).success(function(urlId) {
+        console.log(urlId);
+        return ClarifyService.storeTags($scope.translationDict, urlId + $scope.lang);
+      }).error(function(err) {
+        console.log(err);
+      });
+    }
+  }
 
 	//Translating
 	$scope.changeES = function() {
@@ -64,6 +84,7 @@ function MainController($scope, $http, $location, ClarifyService, YandexService)
 		function(newVal, oldVal) {
 			$scope.translated = newVal;
 			$scope.translatedArr = $scope.translated.replace(/\[|\"\"|\"|\]|\\/g, '').split(',');
+      $scope.translationDict = _.object($scope.tags, $scope.translatedArr);
 		}	
 	);
 }
