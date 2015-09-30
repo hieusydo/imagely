@@ -11,7 +11,7 @@ function ClarifyService($http) {
         url: 'https://api.clarifai.com/v1/tag/\?url\=' + url,
         headers: {
           'Content-Type': 'application/json; charset=utf-8',
-          'Authorization': 'Bearer HtdzR00pcmjQQwSN2mPNwRRsjmTGcP'
+          'Authorization': 'Bearer maarbxlcmJdtTDGC5VCw3qHEiTt9xq'
         }
       }).success(function(json) {
         console.log(json.results[0].result.tag.classes);

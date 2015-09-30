@@ -27,4 +27,8 @@ We plan to finish the quiz mode for our web app since memory retention is import
 `html`
 `ruby`
 
+*Preview:*
+![image](demo1.png)
+![image](demo2.png)
+
 Built at hackNY 2015 

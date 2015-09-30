@@ -48,7 +48,7 @@
                 <div class="todo">
                     <div ng-show="tags" class="todo-search"><h5 style="text-align: center;">English</h5></div>
                     <ul>
-                        <li ng-repeat="tag in tags | limitTo:10">{{ tag }}</li>
+                        <li ng-repeat="tag in tags | limitTo:7">{{ tag }}</li>
                     </ul>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                 <div class="todo">
                     <div ng-show="tags" class="todo-search"><h5 style="text-align: center;">{{language}}</h5></div>
                     <ul>
-                        <li ng-repeat="word in translatedArr | limitTo:10 track by $index">{{word}}</li>
+                        <li ng-repeat="word in translatedArr | limitTo:7 track by $index">{{word}}</li>
                     </ul>
                 </div>
             </div>
